@@ -59,4 +59,28 @@ git push origin master
   - **Code Smells**: Code không tối ưu
   - **Coverage**: Phần trăm code được test
   - **Duplications**: Code trùng lặp
+
+---
+
+## 🏃‍♂️ Hướng dẫn Chạy Ứng dụng Flask
+
+### Cài đặt Dependencies
+```bash
+# Cài đặt Python packages
+pip install -r requirements.txt
+```
+
+### Chạy Ứng dụng
+```bash
+# Chạy Flask development server
+python app.py
+```
+
+Ứng dụng sẽ chạy tại: http://localhost:5000
+
+### API Endpoints
+- **GET /** - Trang chủ với giao diện web
+- **GET /api/health** - Kiểm tra sức khỏe ứng dụng
+- **GET /api/info** - Thông tin ứng dụng
+
 ---
