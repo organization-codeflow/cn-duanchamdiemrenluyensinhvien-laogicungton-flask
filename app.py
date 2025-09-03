@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 
 # Tạo Flask application
 app = Flask(__name__)
@@ -27,6 +27,23 @@ def app_info():
         'version': '1.0.0',
         'description': 'Dự án Flask đơn giản nhất'
     })
+
+@app.route('/api/sum', methods=['GET'])
+def sum_numbers():
+    """
+    API tính tổng 2 số.
+    Gọi: /api/sum?a=5&b=7  →  Trả về 12
+    """
+    try:
+        a = float(request.args.get('a', 0))
+        b = float(request.args.get('b', 0))
+        return jsonify({
+            'a': a,
+            'b': b,
+            'sum': a + b
+        })
+    except ValueError:
+        return jsonify({'error': 'Vui lòng truyền số hợp lệ'}), 400
 
 if __name__ == '__main__':
     # Chạy ứng dụng trong development mode
